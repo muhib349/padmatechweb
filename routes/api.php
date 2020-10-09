@@ -23,9 +23,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/register',[AuthController::class, 'register']);
 Route::post('/login',[AuthController::class, 'login']);
 Route::get('/customers',[CustomerController::class, 'getAllCustomer']);
+Route::get('/customer/{id}',[CustomerController::class, 'getCustomerById']);
+Route::post('/delete',[CustomerController::class, 'delete']);
+Route::post('/update',[CustomerController::class, 'update']);
+Route::post('/create',[CustomerController::class, 'create']);
 
 Route::group([
     'middleware'=> 'auth:api'
    ], function(){
-    Route::post('/create',[CustomerController::class, 'create']);
+    
    });
